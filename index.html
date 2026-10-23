@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Elias Maldonado, analista universitario en sistemas.">
+<style>:root{color-scheme:light}body{margin:0}</style>
+<title>Elias Maldonado</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: carta náutica del Canal Beagle. Columna editorial a la izquierda, filas de datos con isobatas finas. */
+:root {
+  --bg: #EDF1F2;
+  --surface: #E1E8EA;
+  --fg: #0E1B22;
+  --muted: #4F6169;
+  --line: #B9C6CB;
+  --accent: #C2410C;   /* baliza de Les Éclaireurs */
+  --accent-fg: #FFFFFF;
+  --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1318; --surface: #101C23; --fg: #E4ECEE; --muted: #8DA1A9; --line: #243640;
+    --accent: #F2733A; --accent-fg: #0A1318; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1318; --surface: #101C23; --fg: #E4ECEE; --muted: #8DA1A9; --line: #243640;
+  --accent: #F2733A; --accent-fg: #0A1318; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 17px/1.6 var(--f-body);
+  padding-block: 0 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 1240px; margin-inline: auto; }
+.mono { font-family: var(--f-mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+header.top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 24px; border-bottom: 1px solid var(--line); }
+header.top span { white-space: nowrap; }
+
+.hero { padding-block: 44px 40px; display: grid; gap: 28px; }
+.hero .text { display: grid; gap: 28px; min-width: 0; }
+.hero h1 {
+  font: 800 clamp(40px, 7.4vw, 88px)/.95 var(--f-display);
+  letter-spacing: -.03em; margin: 0; text-wrap: balance;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { font-size: clamp(19px, 2.4vw, 24px); line-height: 1.45; max-width: 36em; margin: 0; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  font: 600 15px/1 var(--f-body); padding: 14px 20px; border-radius: 4px; text-decoration: none;
+  border: 1.5px solid var(--fg); display: inline-block;
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.btn.primary:hover { color: var(--accent-fg); filter: brightness(1.08); }
+.btn:hover { color: var(--fg); }
+
+section { padding-block: 40px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 16px 40px; }
+section > h2 { margin: 0; font: 500 12.5px/1.6 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 720px) { section { grid-template-columns: minmax(0, 1fr); } }
+
+.xp { display: grid; gap: 8px; }
+.xp h3 { margin: 0; font: 700 clamp(22px, 3vw, 28px)/1.2 var(--f-display); letter-spacing: -.01em; }
+.xp .meta { color: var(--muted); }
+.xp ul { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.xp li { padding-left: 20px; position: relative; max-width: 40em; }
+.xp li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 1.5px; background: var(--accent); }
+
+.skills { display: grid; gap: 0; margin: 0; }
+.skills > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 24px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.skills > div:first-child { padding-top: 0; }
+.skills > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.skills dt { font: 500 12.5px/1.9 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 14px/1 var(--f-mono); padding: 8px 12px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+@media (max-width: 520px) { .skills > div { grid-template-columns: minmax(0, 1fr); } }
+
+.repos { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; }
+.repos li { min-width: 0; }
+.repo { display: grid; gap: 10px; align-content: start; height: 100%; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; text-decoration: none; transition: border-color .15s, transform .15s; }
+.repo:hover { border-color: var(--accent); color: var(--fg); transform: translateY(-2px); }
+.repo b { font: 700 19px/1.25 var(--f-display); overflow-wrap: anywhere; }
+.repo p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.repo .lang { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 6px; }
+.repo .lang::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+.contact a.big { font: 700 clamp(28px, 5vw, 44px)/1.1 var(--f-display); letter-spacing: -.02em; }
+.contact p { margin: 0 0 16px; max-width: 32em; }
+
+footer { padding-top: 32px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) { .repo { transition: none; } .repo:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top mono">
+    <span>Elias Maldonado</span>
+    <span>54°48′ S · 68°18′ O</span>
+    <span>Ushuaia, Tierra del Fuego</span>
+  </header>
+
+  <div class="hero">
+    <div class="text">
+    <span class="mono">Desarrollador backend · Ushuaia, fin del mundo</span>
+    <h1>Analista universitario<br>en <em>sistemas</em>.</h1>
+    <p class="lead">Desarrollo APIs con Java y Quarkus para la Municipalidad de Ushuaia. Me interesan los servicios que se mantienen simples, se despliegan con Docker y funcionan sin que nadie tenga que pensar en ellos.</p>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="https://github.com/ElyasM10" rel="noopener">github.com/ElyasM10</a>
+    </div>
+    </div>
+  </div>
+
+  <section id="experiencia">
+    <h2>Experiencia</h2>
+    <div class="xp">
+      <span class="mono">Julio 2024 – actualidad</span>
+      <h3>Desarrollo web backend</h3>
+      <span class="meta">Municipalidad de Ushuaia</span>
+      <ul>
+        <li>Desarrollo y mantenimiento de APIs REST para los sistemas municipales con Java y Quarkus.</li>
+        <li>Diseño e implementación de trámites municipales.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="conocimientos">
+    <h2>Conocimientos</h2>
+    <dl class="skills">
+      <div><dt>Backend</dt><dd><span class="chip">Java</span><span class="chip">Quarkus</span><span class="chip">Python</span></dd></div>
+      <div><dt>Datos y mensajería</dt><dd><span class="chip">PostgreSQL</span><span class="chip">Kafka</span></dd></div>
+      <div><dt>Frontend</dt><dd><span class="chip">JavaScript</span><span class="chip">Vue</span><span class="chip">React</span><span class="chip">HTML</span></dd></div>
+      <div><dt>Procesos</dt><dd><span class="chip">Activiti</span><span class="chip">BPMN</span></dd></div>
+      <div><dt>Infraestructura</dt><dd><span class="chip">Docker</span></dd></div>
+    </dl>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <ul class="repos">
+      <li><a class="repo" href="https://github.com/ElyasM10/quarkus-kafka-demo" rel="noopener"><b>quarkus-kafka-demo</b><p>Servicio Quarkus que produce y consume mensajes con Kafka.</p><span class="mono lang">Java</span></a></li>
+      <li><a class="repo" href="https://github.com/ElyasM10/api-formula-1" rel="noopener"><b>api-formula-1</b><p>API REST sobre datos de Fórmula 1.</p><span class="mono lang">Java</span></a></li>
+      <li><a class="repo" href="https://github.com/ElyasM10/frontend-f1" rel="noopener"><b>frontend-f1</b><p>Interfaz web que consume api-formula-1.</p><span class="mono lang">Vue</span></a></li>
+      <li><a class="repo" href="https://github.com/ElyasM10/servicios-integrador-final-sdistribuidos" rel="noopener"><b>servicios-integrador-final-sdistribuidos</b><p>Trabajo integrador final de Sistemas Distribuidos.</p><span class="mono lang">Java</span></a></li>
+      <li><a class="repo" href="https://github.com/ElyasM10/Sistemas-Paralelos" rel="noopener"><b>Sistemas-Paralelos</b><p>Trabajos de la materia Sistemas Paralelos.</p><span class="mono lang">Python</span></a></li>
+      <li><a class="repo" href="https://github.com/ElyasM10/modelos-y-simulacion" rel="noopener"><b>modelos-y-simulacion</b><p>Trabajos prácticos de Modelos y Simulación.</p><span class="mono lang">Java</span></a></li>
+    </ul>
+  </section>
+
+  <section class="contact" id="contacto">
+    <h2>Contacto</h2>
+    <div>
+      <p>El código está en GitHub. Si querés escribirme, ahí encontrás cómo.</p>
+      <a class="big" href="https://github.com/ElyasM10" rel="noopener">github.com/ElyasM10</a>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>Ushuaia, Argentina</span>
+    <span>© 2026 Elias Maldonado</span>
+  </footer>
+</div>
+</body>
+</html>
